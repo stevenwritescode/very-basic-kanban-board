@@ -8,7 +8,7 @@ import { Add, Edit, Delete } from "@material-ui/icons";
 const styles = theme => ({
   root: {
     flexGrow: 1,
-    padding: 25,
+    padding: "0 25px",
   },
   columnHeader: {
     color: "#FFF",
@@ -45,64 +45,42 @@ class KanbanBoard extends React.Component {
           id: 0,
           name: "To Do",
           headerColor: "#f44336",
-          cards: [],
+          cards: [{ id: 0, content: "Task 4" }],
         },
         {
           id: 1,
           name: "In Development",
           headerColor: "#9c27b0",
-          cards: [],
+          cards: [{ id: 0, content: "Task 3" }],
         },
         {
           id: 2,
           name: "In Test",
           headerColor: "#3f51b5",
-          cards: [],
+          cards: [{ id: 0, content: "Task 2" }],
         },
         {
           id: 3,
           name: "Done",
           headerColor: "#8bc34a",
-          cards: [],
+          cards: [{ id: 0, content: "Task 1" }],
         },
       ],
     };
   }
 
   componentDidMount() {
-    const columns = localStorage.getItem("kanbanBoard");
+    const columns = JSON.parse(sessionStorage.getItem("kanbanBoard"));
+    console.log(columns, sessionStorage);
     if (columns) {
       console.log(columns);
       this.setState({ columns });
     }
   }
 
-  componentWillUnmount() {
+  componentDidUpdate() {
     const { columns } = this.state;
-    localStorage.setItem("kanbanBoard", columns);
-  }
-
-  setCookie(cname, cvalue, exdays) {
-    const d = new Date();
-    d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
-    const expires = "expires=" + d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-  }
-
-  getCookie(cname) {
-    const name = cname + "=";
-    const decodedCookie = decodeURIComponent(document.cookie);
-    const ca = decodedCookie.split(";");
-    for (var i = 0; i < ca.length; i++) {
-      var c = ca[i];
-      while (c.charAt(0) === " ") {
-        c = c.substring(1);
-      }
-      if (c.indexOf(name) === 0) {
-        return c.substring(name.length, c.length);
-      }
-    }
-    return "";
+    sessionStorage.setItem("kanbanBoard", JSON.stringify(columns));
   }
 
   handlers = {
@@ -198,6 +176,10 @@ class KanbanBoard extends React.Component {
 
     return (
       <div className={classes.root}>
+        <Button onClick={() => handleAddColumn()}>
+          <Add />
+          Add a column
+        </Button>
         <Grid container direction="row" spacing={3}>
           {columns.map((column, columnIndex) => {
             return (
@@ -226,10 +208,6 @@ class KanbanBoard extends React.Component {
             );
           })}
         </Grid>
-        <Button onClick={() => handleAddColumn()}>
-          <Add />
-          Add a column
-        </Button>
       </div>
     );
   }
