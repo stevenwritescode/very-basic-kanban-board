@@ -106,7 +106,7 @@ class KanbanBoard extends React.Component {
       const newColumnColor = window.prompt("Column Background Color (Hexadecimal):", columns[index].headerColor);
       if (newColumnName && newColumnName.length > 0) {
         columns[index].name = newColumnName;
-        columns[index].color = newColumnColor;
+        columns[index].headerColor = newColumnColor;
         this.setState({ columns });
       }
     },
