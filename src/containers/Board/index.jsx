@@ -143,7 +143,14 @@ class KanbanBoard extends React.Component {
 
     handleAddTask: (column, index) => {
       const { columns } = this.state;
-      const newCardContent = window.prompt("Task Name:", `Task ${columns[index].cards.length + 1}`);
+      let total = 0;
+      const totalCards = () => {
+        for (var i = 0; i < columns.length; i++) {
+          total = total + columns[i].cards.length;
+        }
+        return total;
+      };
+      const newCardContent = window.prompt("Task Name:", `Task ${totalCards() + 1}`);
       const newCard = {
         id: column.cards.length,
         content: newCardContent,
@@ -176,7 +183,7 @@ class KanbanBoard extends React.Component {
       columns[columnIndex].cards.splice(cardIndex, 1);
       this.setState({ columns });
     },
-    
+
     handleRemoveTask: (columnIndex, cardIndex) => {
       const { columns } = this.state;
       columns[columnIndex].cards.splice(cardIndex, 1);
