@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/very-basic-kanban-board/static/css/main.34de6062.chunk.css",
-    "main.js": "/very-basic-kanban-board/static/js/main.f58bc1dc.chunk.js",
-    "main.js.map": "/very-basic-kanban-board/static/js/main.f58bc1dc.chunk.js.map",
+    "main.js": "/very-basic-kanban-board/static/js/main.97366d96.chunk.js",
+    "main.js.map": "/very-basic-kanban-board/static/js/main.97366d96.chunk.js.map",
     "runtime~main.js": "/very-basic-kanban-board/static/js/runtime~main.6a79fffa.js",
     "runtime~main.js.map": "/very-basic-kanban-board/static/js/runtime~main.6a79fffa.js.map",
     "static/js/2.dba58bda.chunk.js": "/very-basic-kanban-board/static/js/2.dba58bda.chunk.js",
     "static/js/2.dba58bda.chunk.js.map": "/very-basic-kanban-board/static/js/2.dba58bda.chunk.js.map",
     "index.html": "/very-basic-kanban-board/index.html",
-    "precache-manifest.30e2dacfe1e159dda0404ce5868ac60e.js": "/very-basic-kanban-board/precache-manifest.30e2dacfe1e159dda0404ce5868ac60e.js",
+    "precache-manifest.382c92805776aa3708bce93ca2b7fe89.js": "/very-basic-kanban-board/precache-manifest.382c92805776aa3708bce93ca2b7fe89.js",
     "service-worker.js": "/very-basic-kanban-board/service-worker.js",
     "static/css/main.34de6062.chunk.css.map": "/very-basic-kanban-board/static/css/main.34de6062.chunk.css.map"
   }
