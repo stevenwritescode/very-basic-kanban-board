@@ -70,17 +70,15 @@ class KanbanBoard extends React.Component {
   }
 
   componentDidMount() {
-    const columns = JSON.parse(sessionStorage.getItem("kanbanBoard"));
-    console.log(columns, sessionStorage);
+    const columns = JSON.parse(localStorage.getItem("kanbanBoard"));
     if (columns) {
-      console.log(columns);
       this.setState({ columns });
     }
   }
 
   componentDidUpdate() {
     const { columns } = this.state;
-    sessionStorage.setItem("kanbanBoard", JSON.stringify(columns));
+    localStorage.setItem("kanbanBoard", JSON.stringify(columns));
   }
 
   handlers = {
